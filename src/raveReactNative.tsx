@@ -5,8 +5,8 @@ import { WebView, WebViewMessageEvent, WebViewNavigation } from 'react-native-we
 import axios from 'axios';
 import uuid4 from 'uuid/v4';
 
-import { RaveViewProps } from 'types';
-import { redirectApi, CurrencyToCountryMap, NetworkMap } from 'consts';
+import { RaveViewProps } from './types';
+import { redirectApi, CurrencyToCountryMap, NetworkMap } from './consts';
 
 export const Rave = (props: RaveViewProps) => {
     const [loading, setLoading] = useState(true);

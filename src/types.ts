@@ -1,4 +1,4 @@
-import { CurrencyToCountryMap } from './consts';
+import { CurrencyToCountryMap, NetworkMap } from './consts';
 
 export interface PaymentDataProps {
     userId: string;
@@ -13,6 +13,7 @@ export interface PaymentDataProps {
 }
 
 export interface RaveViewProps {
+    network?: keyof typeof NetworkMap;
     paymentData: PaymentDataProps;
     button: React.ReactElement;
     onSuccess?: () => void;

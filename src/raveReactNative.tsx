@@ -6,7 +6,7 @@ import axios from 'axios';
 import uuid4 from 'uuid/v4';
 
 import { RaveViewProps } from 'types';
-import { CurrencyToCountryMap, paymentApi, redirectApi } from 'consts';
+import { redirectApi, CurrencyToCountryMap, NetworkMap } from 'consts';
 
 export const Rave = (props: RaveViewProps) => {
     const [loading, setLoading] = useState(true);
@@ -31,7 +31,8 @@ export const Rave = (props: RaveViewProps) => {
         };
         
         try {
-            const { data } = await axios.post(paymentApi, constructedData, {
+            const api = props.network ? NetworkMap[props.network] : NetworkMap.live;
+            const { data } = await axios.post(api, constructedData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
